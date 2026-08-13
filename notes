@@ -1,0 +1,17 @@
+# file system of nodejs
+it allows js code running outside the browser and interact directly to operationg systems 
+## common operations on file/folder 
+- reading and writing files -> readFile(), writeFile(), appendFile()
+- directory management -> mkdir(), rmdir(), readdir()
+- metadata/information -> stat(), lstat(), fstat()
+- watching for changes -> watch(), watchFile(), unwatchFile()
+- streaming large file -> createReadStream(), createWriteStream()
+- file operations -> rename(), truncate(), unlink(), link(), syslink() 
+
+
+c : create
+r : read
+u : update
+d : delete 
+
+await can be used with any promise in async function. that async function will also accessed by await keyword 
