@@ -64,11 +64,19 @@ const removeProduct = async (pid)=>
   }
 }
 
-const updateProductQuantity = async (pid1) => {
+const updateProductQuantity = async (pid1, option = "-") => {
 const cart = await getCart();
 const product = cart.find((item) => item.id === pid1);
 if (product) {
-    product.qty += 1;
+    if (option === "+") {
+        product.qty += 1;
+    } else if (option === "-") {
+        product.qty -= 1;
+        if (product.qty <= 0) {
+            await removeProduct(pid1);
+            return;
+        }
+    }
     await saveCart(cart);
     console.log(`Quantity updated for ${product.name}`);
 } else {
@@ -118,8 +126,9 @@ const main = async () => {
 
       case 4:
         console.log("Update Quantity");
-        const pid1 = await cin.question("Enter product ID to update: ");
-        await updateProductQuantity(Number(pid1));
+        const pid1 = await cin.question("Enter product ID to update quantity: ");
+        const option = await cin.question("Enter '+' to increase or '-' to decrease quantity: ");
+        await updateProductQuantity(Number(pid1), option);
         break;
 
       case 5:
