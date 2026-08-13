@@ -47,6 +47,23 @@ const displayCart = async () => {
   console.log(`Total payable amount Rs. ${total}`);
 };
 
+const removeProduct = async (pid)=>
+{
+  const cart = await getCart();
+  let x = cart.length;
+  const newProducts = cart.filter((item) => item.id !== pid);
+  let y = newProducts.length;
+  if(x>y)
+  {
+    await saveCart(newProducts);
+    console.log("product deleted")
+  }
+  else 
+  {
+    console.log("product not found")
+  }
+}
+
 const main = async () => {
   let choice;
   const cin = readline.createInterface({
@@ -83,6 +100,8 @@ const main = async () => {
 
       case 3:
         console.log("Remove Product");
+        const pid = await cin.question("Enter product ID to remove: ");
+        await removeProduct(Number(pid));
         break;
 
       case 4:
