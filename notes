@@ -1,6 +1,6 @@
-# file system of nodejs
+// # file system of nodejs
 it allows js code running outside the browser and interact directly to operationg systems 
-## common operations on file/folder 
+// ## common operations on file/folder 
 - reading and writing files -> readFile(), writeFile(), appendFile()
 - directory management -> mkdir(), rmdir(), readdir()
 - metadata/information -> stat(), lstat(), fstat()
@@ -15,3 +15,23 @@ u : update
 d : delete 
 
 await can be used with any promise in async function. that async function will also accessed by await keyword 
+
+http module ; node js (library)
+hyper text transfer protocol 
+
+html
+hypher text markup lang
+
+css
+cascading style sheets
+
+url -> ip address 
+
+using chrome we render html
+req and response gives http
+
+local host, 127.0.0.1
+2 to the power 32 : listening ports, we have to give our server a port 
+
+npm: node pacakage manager 
+npm init -y
